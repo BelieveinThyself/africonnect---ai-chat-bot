@@ -8,7 +8,7 @@ from sentence_transformers import SentenceTransformer
 
 app = FastAPI(title="Local AI Brain")
 #Load AI model once when server starts
-model = SentenceTransformer('all-MiniLM-L6-v2')
+model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
 # Load fake suppliers once at startup.
 with open("suppliers.json", "r")as f:
 	SUPPLIERS = json.load(f)
