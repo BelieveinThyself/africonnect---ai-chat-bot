@@ -1,0 +1,907 @@
+:root {
+  --brand-green: #036942; 
+  --brand-blue: #1a33e6;
+  --bg-gray: #f2f2f2;
+  --text-dark: #000000;
+  --alert-red: #FF3B30; /* Figma solid alert red */
+}
+
+/* Global Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
+}
+
+/* Base App Layout Frame */
+.dashboard-app-frame {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f8fafc; /* Cool, subtle off-white background matching Figma windows */
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ==========================================================================
+   1. LEFT PERSISTENT SIDEBAR STYLES
+   ========================================================================== */
+.dashboard-sidebar {
+  width: 260px;
+  background-color: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  box-sizing: border-box;
+}
+
+.sidebar-logo-block {
+  display: flex;
+  align-items: center;
+  gap: 0px; /* Kept tight to mirror your navbar alignment */
+  cursor: pointer;
+}
+
+.sidebar-logo-img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.dashboard-sidebar .logo-text {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.sidebar-subtitle {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: 500;
+  margin-top: 2px;
+  margin-left: 36px;
+  margin-bottom: 32px;
+}
+
+.sidebar-nav-tree {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.nav-item-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  padding: 12px 16px;
+  width: 100%;
+  border-radius: 8px;
+  text-align: left;
+  color: #64748b;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-item-link:hover {
+  background-color: #f1f5f9;
+  color: #1e293b;
+}
+
+.nav-item-link.active {
+  background-color: #e6f7f0; /* Soft green backdrop highlight token */
+  color: var(--brand-green); 
+}
+
+.sidebar-footer-block {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 16px;
+}
+
+.sidebar-logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  color: #ef4444; 
+  font-weight: 600;
+  font-size: 0.95rem;
+  width: 100%;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   2. RIGHT VIEWPORT & INNER HEADER STYLES
+   ========================================================================== */
+.dashboard-viewport-right {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.viewport-top-header {
+  height: 70px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.header-search-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #f1f5f9;
+  padding: 8px 16px;
+  border-radius: 8px;
+  width: 320px;
+  gap: 10px;
+}
+
+.search-box-icon {
+  color: #94a3b8;
+}
+
+.header-search-input {
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 0.9rem;
+  width: 100%;
+  color: #334155;
+}
+
+.header-actions-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon-badge-btn {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  position: relative;
+  padding: 4px;
+}
+
+.badge-dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+.header-profile-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 12px;
+  border-left: 1px solid #e2e8f0;
+}
+
+.user-pill-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-pill-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.viewport-main-content {
+  flex-grow: 1;
+  padding: 32px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   3. OVERVIEW TAB SPECIFIC STYLES (VERIFICATION BANNER & ANALYTICS)
+   ========================================================================== */
+
+/* Clean Verification Alert Banner styling */
+.verification-banner {
+  background-color: #FFF5F5;     /* Soft, light red tinted background */
+  border: 1.5px solid #FFD2D2;   /* Subtle red border structure */
+  border-left: 5px solid var(--alert-red); /* Solid bold red accent line on the left border hook */
+  border-radius: 12px;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.banner-left {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.banner-verify-icon {
+  flex-shrink: 0;
+}
+
+.banner-left h4 {
+  margin: 0 0 2px 0;
+  color: #1e293b;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.banner-left p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.88rem;
+}
+
+/* Red "Upload Documents" Pill Button */
+.banner-upload-btn {
+  background-color: var(--alert-red); 
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 20px;       /* Rounded pill look from Figma */
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.banner-upload-btn:hover {
+  background-color: #E03128; /* Darker red on state action hover */
+}
+
+/* Analytics Metric Layout Section */
+.analytics-summary-grid { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px; 
+  margin-bottom: 32px; 
+}
+
+.metric-card { 
+  background: #ffffff; 
+  padding: 24px; 
+  border-radius: 12px; 
+  border: 1px solid #e2e8f0; 
+}
+
+.metric-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.metric-title { 
+  font-size: 0.85rem; 
+  color: #64748b; 
+  font-weight: 600; 
+  text-transform: uppercase; 
+}
+
+.metric-card h3 { 
+  font-size: 2rem; 
+  margin: 12px 0 6px 0; 
+  font-weight: 800; 
+  color: #1e293b; 
+}
+
+.metric-trend { 
+  font-size: 0.8rem; 
+  font-weight: 600; 
+}
+
+/* Shared General Color Classes */
+.text-green { color: var(--brand-green); }
+.text-orange { color: #f97316; }
+.text-red { color: #ef4444; }
+.text-blue { color: var(--brand-blue); }
+.text-black { color: var(--text-dark); }
+
+/* Placeholder and Row Layouts */
+.dashboard-sections-row {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-top: 24px;
+}
+
+.tab-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   4. MODULAR LAYOUT COLUMNS (FIGMA SIDE-BY-SIDE GRID EFFECT)
+   ========================================================================== */
+
+/* Main layout context grouping My Products & Recent Chats side-by-side */
+.overview-grid-row {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  margin-bottom: 32px;
+  align-items: start;
+}
+
+/* Left main container slot - My Products takes up ~65% width space */
+.grid-main-column {
+  flex: 1.8;
+  min-width: 0; /* Lets content shrink safely inside the column wrapper */
+}
+
+/* Right narrow panel slot - Recent Chats occupies the right boundary */
+.grid-side-column {
+  flex: 1;
+  min-width: 320px;
+}
+
+/* ✅ CRITICAL LAYOUT ENFORCER: Caps internal tables from causing flex blowout */
+.grid-main-column > * {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Resets margins inside structural overview row grid containers */
+.overview-grid-row .dashboard-block-section {
+  margin-bottom: 0;
+}
+
+.tab-pane-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.view-action-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.view-action-header-row h2 { 
+  margin: 0 0 4px 0; 
+  font-size: 1.6rem; 
+  font-weight: 800; 
+  color: #1e293b; 
+}
+
+.view-action-header-row p { 
+  margin: 0; 
+  color: #64748b; 
+  font-size: 0.95rem; 
+}
+
+.dashboard-block-section {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 32px;
+  box-sizing: border-box;
+}
+
+/* Figma Component Outline Frames */
+.block-blue { border: 1.5px solid var(--brand-blue); }
+.block-magenta { border: 1.5px solid #d946ef; }
+
+.block-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.block-section-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.add-product-badge-btn {
+  background-color: #ef4444;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.add-product-badge-btn.large-btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.products-preview-flex {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.inventory-preview-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.card-image-box {
+  width: 100%;
+  height: 160px;
+  background-color: #f1f5f9;
+}
+
+.card-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-info-box {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-info-box h4 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.product-desc-sub {
+  margin: -8px 0 0 0;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.card-pricing-row {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f8fafc;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.card-pricing-row > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.info-lbl {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+.info-val {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.card-footer-action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.status-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+.status-instock { background-color: #e6f7f0; color: #036942; }
+.status-lowstock { background-color: #fff7ed; color: #c2410c; }
+
+.edit-mini-btn {
+  background: none;
+  border: 1px solid #cbd5e1;
+  color: #64748b;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.edit-mini-btn.delete-accent:hover { background-color: #fef2f2; color: #ef4444; border-color: #fca5a5; }
+
+.block-section-footer {
+  margin-top: 20px;
+  text-align: center;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 16px;
+}
+
+.footer-view-all-btn {
+  background: none;
+  border: none;
+  color: var(--brand-blue);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* Utilities Filter Bar components */
+.filter-utilities-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.util-search-input-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f1f5f9;
+  padding: 8px 14px;
+  border-radius: 6px;
+  width: 280px;
+  color: #64748b;
+}
+
+.util-search-input-box input { border: none; background: none; outline: none; font-size: 0.85rem; width: 100%; }
+
+.util-icon-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid #cbd5e1;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #475569;
+  cursor: pointer;
+}
+
+/* Full Width Subview Workspace Layout Elements */
+.product-table-identity-cell { display: flex; align-items: center; gap: 12px; }
+.mini-table-thumb { width: 44px; height: 44px; border-radius: 8px; object-fit: cover; }
+.product-cell-bold-title { font-weight: 700; color: #1e293b; font-size: 0.95rem; }
+.table-actions-flex { display: flex; gap: 8px; }
+.flex-btn { display: flex; align-items: center; gap: 6px; }
+
+/* Responsive Workflow Tables */
+.table-responsive-wrapper { width: 100%; overflow-x: auto; }
+.rfq-dashboard-table { width: 100%; border-collapse: collapse; text-align: left; min-width: 600px; }
+.rfq-dashboard-table th { background-color: #f1f5f9; color: #475569; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; padding: 12px 16px; border-bottom: 1px solid #e2e8f0; }
+.rfq-dashboard-table td { padding: 16px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
+.rfq-title-cell { display: flex; flex-direction: column; gap: 4px; }
+.rfq-main-item { font-size: 0.95rem; font-weight: 800; color: #1e293b; }
+.rfq-sub-meta { font-size: 0.75rem; color: #94a3b8; }
+.buyer-cell-txt, .volume-cell-txt { font-size: 0.9rem; font-weight: 600; color: #475569; }
+
+/* Request Workflow Badges */
+.rfq-status-pill { font-size: 0.75rem; font-weight: 700; padding: 6px 12px; border-radius: 8px; text-transform: uppercase; display: inline-block; }
+.rfq-new { background: linear-gradient(135deg, #fef08a 0%, #bbf7d0 100%); color: #15803d; }
+.rfq-negotiating { background-color: #dbeafe; color: #1d4ed8; }
+.rfq-closed { background-color: #f1f5f9; color: #64748b; }
+.rfq-action-respond-btn { background-color: var(--brand-green); color: #ffffff; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; }
+
+/* ==========================================================================
+   5. RECENT CHATS ROW WIDGET SPECIFICATIONS
+   ========================================================================== */
+.block-gray-chat {
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.chat-header-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chat-notification-count-badge {
+  background-color: #ffedd5;
+  color: #ea580c;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.chats-widget-list-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.widget-chat-row-item {
+  display: flex;
+  gap: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.widget-chat-row-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.chat-item-avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.chat-row-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.active-online-dot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
+  background-color: #22c55e;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+}
+
+.chat-item-body-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-row-top-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-item-body-content h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.chat-row-timestamp {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.chat-row-company-lbl {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--brand-green);
+  letter-spacing: 0.5px;
+  margin-top: 1px;
+}
+
+.chat-row-snippet-text {
+  margin: 4px 0 0 0;
+  font-size: 0.85rem;
+  color: #64748b;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.chat-center-btn {
+  color: var(--brand-green);
+}
+
+/* ==========================================================================
+   6. LIVE CHAT COMMUNICATIONS ADVANCED WORKSPACE
+   ========================================================================== */
+.messages-workspace-wrapper {
+  display: flex;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  height: calc(100vh - 140px);
+  overflow: hidden;
+}
+
+.messages-sidebar-panel {
+  width: 340px;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-search-header { padding: 20px; border-bottom: 1px solid #f1f5f9; }
+.panel-search-header h3 { margin: 0; font-size: 1.1rem; font-weight: 800; }
+.threads-vertical-stack { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; }
+.thread-card-row { display: flex; gap: 12px; padding: 16px; cursor: pointer; border-bottom: 1px solid #f8fafc; transition: background 0.2s; }
+.thread-card-row:hover { background-color: #f8fafc; }
+.thread-card-row.selected-active { background-color: #f0fdf4; border-left: 4px solid var(--brand-green); }
+.thread-avatar-container { position: relative; width: 40px; height: 40px; flex-shrink: 0; }
+.thread-avatar-container img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.online-beacon-dot { position: absolute; bottom: 0; right: 0; width: 10px; height: 10px; background-color: #22c55e; border: 2px solid #fff; border-radius: 50%; }
+.thread-meta-body { flex-grow: 1; display: flex; flex-direction: column; }
+.thread-header-line { display: flex; justify-content: space-between; align-items: center; }
+.thread-meta-body h4 { margin: 0; font-size: 0.9rem; font-weight: 700; color: #1e293b; }
+.thread-time-lbl { font-size: 0.75rem; color: #94a3b8; }
+.thread-company-sub { font-size: 0.75rem; font-weight: 700; color: var(--brand-green); text-transform: uppercase; margin-top: 1px; }
+.thread-snippet-paragraph { margin: 4px 0 0 0; font-size: 0.8rem; color: #64748b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 220px; }
+
+/* Active Chat logs components */
+.chat-window-viewport { flex-grow: 1; display: flex; flex-direction: column; background-color: #f8fafc; }
+.chat-window-header { height: 68px; background-color: #ffffff; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; padding: 0 24px; }
+.chat-window-header h3 { margin: 0; font-size: 1.05rem; font-weight: 800; }
+.subtitle-company { font-size: 0.8rem; color: #64748b; font-weight: 500; }
+.chat-message-log-scroll { flex-grow: 1; padding: 24px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; }
+.message-bubble { max-width: 60%; padding: 12px 16px; border-radius: 12px; font-size: 0.9rem; line-height: 1.4; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+.bubble-incoming { background-color: #ffffff; align-self: flex-start; border-bottom-left-radius: 2px; color: #334155; border: 1px solid #e2e8f0; }
+.bubble-outgoing { background-color: #e6f7f0; align-self: flex-end; border-bottom-right-radius: 2px; color: #036942; }
+.bubble-timestamp { font-size: 0.7rem; color: #94a3b8; display: block; margin-top: 4px; text-align: right; }
+.outgoing-status-meta { display: flex; justify-content: flex-end; align-items: center; gap: 4px; margin-top: 4px; font-size: 0.7rem; color: #64748b; }
+.chat-input-control-footer { height: 70px; background-color: #ffffff; border-top: 1px solid #e2e8f0; display: flex; align-items: center; padding: 0 24px; gap: 12px; }
+.chat-attach-trigger { background: none; border: none; color: #64748b; cursor: pointer; padding: 4px; }
+.chat-text-field { flex-grow: 1; border: 1px solid #e2e8f0; background-color: #f1f5f9; padding: 10px 16px; border-radius: 8px; outline: none; font-size: 0.88rem; }
+.chat-send-trigger-btn { background-color: var(--brand-green); color: #fff; border: none; padding: 10px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+/* ==========================================================================
+   7. ACCOUNT PROFILE DATA WORK AREA PARAMETERS
+   ========================================================================== */
+.max-width-form { max-width: 1000px; }
+.profile-dashboard-layout-grid { display: grid; grid-template-columns: 1fr 320px; gap: 32px; margin-top: 8px; }
+.profile-settings-form-wrapper { background-color: #ffffff; padding: 28px; border-radius: 16px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; gap: 20px; }
+.form-input-group-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-field-item { display: flex; flex-direction: column; gap: 6px; }
+.form-field-item label { font-size: 0.82rem; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.3px; }
+.form-field-item input, .form-field-item textarea { border: 1px solid #cbd5e1; padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; outline: none; color: #334155; font-family: inherit; }
+.form-field-item input:focus, .form-field-item textarea:focus { border-color: var(--brand-green); box-shadow: 0 0 0 3px rgba(3, 105, 66, 0.08); }
+.large-action-btn { padding: 14px 24px; border-radius: 8px; justify-content: center; font-size: 0.95rem; margin-top: 8px; }
+
+.profile-identity-card-sidebar { display: flex; flex-direction: column; gap: 24px; }
+.avatar-uploader-center { background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.uploader-preview-avatar { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #e2e8f0; }
+.verification-status-sidebar-box { background-color: #fff5f5; border: 1px solid #fca5a5; padding: 20px; border-radius: 16px; display: flex; flex-direction: column; gap: 10px; }
+.status-title-row { display: flex; align-items: center; gap: 8px; color: #ef4444; font-size: 0.95rem; }
+.verification-status-sidebar-box p { margin: 0; font-size: 0.85rem; color: #7f1d1d; line-height: 1.4; }
+
+/* ==========================================================================
+   8. MOBILE RESPONSIVE LAYOUT BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .overview-grid-row {
+    flex-direction: column;
+  }
+  .grid-side-column {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-app-frame {
+    flex-direction: column;
+  }
+
+  .dashboard-sidebar {
+    width: 100vw;
+    height: auto;
+    padding: 16px;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .sidebar-subtitle {
+    margin-bottom: 16px;
+  }
+
+  .sidebar-nav-tree {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 4px;
+    padding-bottom: 8px;
+  }
+
+  .nav-item-link {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    width: auto;
+  }
+
+  .sidebar-footer-block {
+    display: none; /* Hide footer logout row on mobile views */
+  }
+
+  .viewport-top-header {
+    padding: 0 16px;
+  }
+
+  .header-search-wrapper {
+    width: 180px;
+  }
+
+  .analytics-summary-grid { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .verification-banner {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .banner-upload-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .products-preview-flex {
+    grid-template-columns: 1fr;
+  }
+  
+  .profile-dashboard-layout-grid { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .messages-workspace-wrapper { 
+    flex-direction: column; 
+    height: auto; 
+  }
+  
+  .messages-sidebar-panel { 
+    width: 100%; 
+    border-right: none; 
+    border-bottom: 1px solid #e2e8f0; 
+  }
+  
+  .chat-window-viewport { 
+    height: 450px; 
+  }
+}

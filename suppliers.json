@@ -1,0 +1,8 @@
+[
+	{"id": 1, "name":"AgroWest Ltd", "commodity": "cocoa", "city": "Lagos", "km":45, "verified": true, "response_rate": 96},
+	{"id": 2, "name":"Prime Cocoa Export", "commodity": "cocoa", "city": "Ibadan", "km":90, "verified": true, "response_rate": 88},
+	{"id": 3, "name":"Ghana Agro Supply", "commodity": "cocoa", "city": "Accra", "km":160, "verified": false, "response_rate": 70},
+	{"id": 4, "name":"Cashew Kings", "commodity": "cashew", "city": "Lagos", "km":50, "verified": true, "response_rate": 94},
+	{"id": 5, "name":"Delta Farms", "commodity": "cocoa", "city": "Warri", "km":280, "verified": true, "response_rate": 92}
+
+]

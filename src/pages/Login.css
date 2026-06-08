@@ -1,0 +1,106 @@
+
+.login-page {
+  background: #fff;
+  min-height: 100vh;
+  padding: 40px 24px;
+}
+
+.login-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.restricted {
+  color: #6b7280;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.login-left h1 {
+  font-size: 32px;
+  margin: 0 0 12px 0;
+}
+
+.subtext {
+  color: #6b7280;
+  margin-bottom: 32px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.feature-card {
+  background: #f0f9ff;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.feature-card .icon {
+  width: 32px;
+  height: 32px;
+  background: #dcfce7;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.login-box {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 32px;
+  background: white;
+}
+
+.google-btn {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  margin: 6px 0 16px 0;
+}
+
+.signin-btn {
+  width: 100%;
+  padding: 12px;
+  background: #000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .login-container {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,86 @@
+.profile-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 30px;
+  margin-bottom: 40px;
+}
+
+.back-nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.back-arrow {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.profile-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.avatar-circle {
+  width: 100px;
+  height: 100px;
+  background-color: #fff5f5; /* Light pink/peach from Figma */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid #fce4e4;
+}
+
+/* Form Styling */
+.profile-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.form-group label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.value-text {
+  color: #888;
+  font-size: 1rem;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.chevron {
+  font-size: 2rem;
+  color: #ccc;
+  font-weight: 300;
+}
+
+.form-group:hover .chevron {
+  color: var(--brand-green); /* Subtle feedback using your brand color */
+}
