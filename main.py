@@ -1,7 +1,7 @@
 import os
 import json
 os.environ["TRANSFORMERS_CACHE"] = "/opt/render/project/src/.cache"
-os.environ["TRANSFORMERS_HOME"] = "/opt/render/project/src/.cache"
+os.environ["SENTENCE_TRANSFORMERS_HOME"] = "/opt/render/project/src/.cache"
 from fastapi import FastAPI
 from pydantic import BaseModel
 from sentence_transformers import SentenceTransformer
